@@ -4,8 +4,13 @@ import { Keg } from "./keg.model";
 @Component ({
   selector: 'keg-list',
   template: `
+  <select (change) ="onChange($event.target.value)" class="filter">
+    <option value="all">Show All</option>
+    <option value="tappedIn">Over 10</option>
+    <option value="tappedOut">Under 10</option>
+  </select>
   <div class="row">
-    <div *ngFor="let keg of childkegs">
+    <div *ngFor="let keg of childkegs | completeness:selectedCompleteness">
       <div class="col-sm-2" id="keglist">
           <h3>{{ keg.name }}</h3>
           <h3>{{ keg.brand }}</h3>
@@ -24,5 +29,9 @@ export class KegListComponent{
   @Input() childkegs: Keg[];
   takePint(testKeg: Keg){
     testKeg.totalPints -= 1;
+  }
+  public selectedCompleteness: string = "tappedOut";
+  onChange(targetValue) {
+    this.selectedCompleteness = targetValue;
   }
 }

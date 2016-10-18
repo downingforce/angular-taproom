@@ -14,7 +14,7 @@ import { Keg } from './keg.model';
 
 export class AppComponent {
   public masterKegList: Keg[] = [
-    new Keg("Bock", "Shiner Bock", 80, 6, 124),
+    new Keg("Bock", "Shiner Bock", 80, 6, 20),
     new Keg("IPA", "Lagaunitas", 105, 7, 124),
     new Keg("Pilsner", "Budweiser", 60, 4.5, 124),
     new Keg("Hefeweizen", "Pyramid", 100, 5, 124)
