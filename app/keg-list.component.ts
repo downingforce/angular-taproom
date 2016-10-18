@@ -11,6 +11,8 @@ import { Keg } from "./keg.model";
           <h3>{{ keg.brand }}</h3>
           <h3>{{ keg.price }}$</h3>
           <h3>{{ keg.alcoholContent }}%</h3>
+          <h3>{{ keg.totalPints }}</h3>
+          <button (click)="takePint(keg)">Take a Pint</button>
       </div>
     </div>
   </div>
@@ -20,4 +22,7 @@ import { Keg } from "./keg.model";
 
 export class KegListComponent{
   @Input() childkegs: Keg[];
+  takePint(testKeg: Keg){
+    testKeg.totalPints -= 1;
+  }
 }

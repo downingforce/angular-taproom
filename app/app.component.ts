@@ -14,13 +14,13 @@ import { Keg } from './keg.model';
 
 export class AppComponent {
   public masterKegList: Keg[] = [
-    new Keg("Bock", "Shiner Bock", 80, 6),
-    new Keg("IPA", "Lagaunitas", 105, 7),
-    new Keg("Pilsner", "Budweiser", 60, 4.5),
-    new Keg("Hefeweizen", "Pyramid", 100, 5)
+    new Keg("Bock", "Shiner Bock", 80, 6, 124),
+    new Keg("IPA", "Lagaunitas", 105, 7, 124),
+    new Keg("Pilsner", "Budweiser", 60, 4.5, 124),
+    new Keg("Hefeweizen", "Pyramid", 100, 5, 124)
   ];
-  addKeg(newKegFromChild: Keg) {
-    this.masterKegList.push(newKegFromChild);
-    console.log(this.masterKegList);
-  }
+    addKeg(newKegFromChild: Keg) {
+      this.masterKegList.push(newKegFromChild);
+      console.log(this.masterKegList);
+    }
   }
