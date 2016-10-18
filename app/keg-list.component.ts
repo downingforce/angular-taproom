@@ -9,8 +9,13 @@ import { Keg } from "./keg.model";
     <option value="tappedIn">Over 10</option>
     <option value="tappedOut">Under 10</option>
   </select>
+
+  <button value="Yes" (click)="sortPrice($event.target.value)">Sort by Price</button>
+
+  <button value="No" (click)="sortPrice($event.target.value)">Unsort</button>
+
   <div class="row">
-    <div *ngFor="let keg of childkegs | completeness:selectedCompleteness">
+    <div *ngFor="let keg of childkegs | completeness:selectedCompleteness | sorting:selectSort">
       <div class="col-sm-2" id="keglist">
           <h3>{{ keg.name }}</h3>
           <h3>{{ keg.brand }}</h3>
@@ -33,5 +38,10 @@ export class KegListComponent{
   public selectedCompleteness: string = "";
   onChange(targetValue) {
     this.selectedCompleteness = targetValue;
+  }
+
+  public selectSort: string = "";
+  sortPrice(sortValue) {
+    this.selectSort = sortValue;
   }
 }
