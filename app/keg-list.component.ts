@@ -15,7 +15,7 @@ import { Keg } from "./keg.model";
           <h3>{{ keg.name }}</h3>
           <h3>{{ keg.brand }}</h3>
           <h3>{{ keg.price }}$</h3>
-          <h3>{{ keg.alcoholContent }}%</h3>
+          <h3 [class.strongBeer]="keg.alcoholContent > 6">{{ keg.alcoholContent }}%</h3>
           <h3>{{ keg.totalPints }}</h3>
           <button (click)="takePint(keg)">Take a Pint</button>
       </div>
@@ -30,7 +30,7 @@ export class KegListComponent{
   takePint(testKeg: Keg){
     testKeg.totalPints -= 1;
   }
-  public selectedCompleteness: string = "tappedOut";
+  public selectedCompleteness: string = "";
   onChange(targetValue) {
     this.selectedCompleteness = targetValue;
   }
